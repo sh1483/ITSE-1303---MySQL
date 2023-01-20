@@ -1,0 +1,5 @@
+CountryCode	FemaleLiteracyRate
+AFG	24
+DEU	99
+NLD	99
+USA	99

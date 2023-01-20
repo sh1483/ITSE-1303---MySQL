@@ -1,0 +1,7 @@
+Field	Type	Null	Key	Default	Extra
+MATCH	int	NO	PRI	NULL	
+TEAMNO	int	NO		NULL	
+PLAYERNO	int	NO		NULL	
+WON	smallint	NO		NULL	
+LOST	smallint	NO		NULL	
+Date	date	YES		NULL	

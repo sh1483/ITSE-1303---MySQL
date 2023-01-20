@@ -1,0 +1,5 @@
+Field	Type	Null	Key	Default	Extra
+TEAMNO	int	NO	PRI	NULL	
+Founded	date	YES		NULL	
+PLAYERNO	int	NO		NULL	
+DIVISION	char(6)	NO		NULL	

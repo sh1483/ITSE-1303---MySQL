@@ -1,0 +1,2 @@
+PAYMENTNO	total_penalties	max_penalty
+1	8	100.00

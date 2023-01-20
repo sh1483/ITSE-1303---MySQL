@@ -1,0 +1,3 @@
+PLAYERNO	difference_high_low
+27	25.00
+44	50.00

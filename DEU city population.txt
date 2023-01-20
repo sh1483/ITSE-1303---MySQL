@@ -1,0 +1,7 @@
+Name	Population
+Berlin	3386667
+Hamburg	1704735
+Frankfurt am Main	643821
+Essen	599515
+Dortmund	590213
+Stuttgart	582443

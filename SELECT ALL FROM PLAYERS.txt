@@ -1,0 +1,26 @@
+-- Delete all players who live in the same town as player 57 but keep the data about player 57
+-- (you may need to alias the sub-query on the town name for 57).
+DELETE FROM players
+WHERE PLAYERNO IN
+	(SELECT PLAYERNO FROM
+		(SELECT p1.PLAYERNO
+		FROM players p1 JOIN players p2
+			ON p1.PLAYERNO = p2.PLAYERNO
+			WHERE p1.TOWN IN
+				(SELECT TOWN FROM players
+				WHERE PLAYERNO = 57)
+			AND p1.PLAYERNO != 57) AS x);
+
+SELECT *
+FROM players;
+
+
+PLAYERNO	NAME	INITIALS	BIRTH_DATE	SEX	JOINED	STREET	HOUSENO	POSTCODE	TOWN	PHONENO	LEAGUENO
+8	Newcastle	B	1962-07-08	F	1980	Station Road	4	6584WO	Inglewood	070-458458	2983
+27	Collins	DD	1964-12-28	F	1983	Long Drive	804	8457DK	Eltham	079-234857	2513
+28	Collins	C	1963-06-22	F	1983	Old Main Road	10	1294QK	Midhurst	010-659599	NULL
+44	Baker	E	1963-01-09	M	1980	Lewis Street	23	4444LJ	Inglewood	070-368753	1124
+57	Brown	M	1971-08-17	M	1985	Edgecombe Way	16	4377CB	Stratford	070-473458	6409
+95	Miller	P	1963-05-14	M	1972	High Street	33A	5746OP	Douglas	070-867564	NULL
+104	Moorman	D	1970-05-10	F	1984	Stout Street	65	9437AO	Eltham	079-987571	7060
+112	Bailey	IP	1963-10-01	F	1984	Vixen Road	8	6392LK	Plymouth	010-548745	1319

@@ -1,0 +1,46 @@
+-- a.	Add a new column called Founded of type date to the TEAMS table after the TEAMNO.
+ALTER TABLE `tennis`.`teams` 
+ADD COLUMN `Founded` DATE NULL AFTER `TEAMNO`;
+
+-- b.	Add a new column called Paid of type char (1) to the PENALTIES table.
+ALTER TABLE `tennis`.`penalties` 
+ADD COLUMN `Paid` CHAR(1) NULL AFTER `AMOUNT`;
+
+-- c.	In the PENALTIES table, change the column name AMOUNT to PENALTY_AMOUNT.
+ALTER TABLE `tennis`.`penalties` 
+CHANGE COLUMN `AMOUNT` `PENALTY_AMOUNT` DECIMAL(7,2) NOT NULL ;
+
+-- d.	Add a new column called Date of type date to the MATCHES table.
+ALTER TABLE `tennis`.`matches` 
+ADD COLUMN `Date` DATE NULL AFTER `LOST`;
+
+-- e.	In the MATCHES table, change the column name MATCHNO to MATCH. 
+ALTER TABLE `tennis`.`matches` 
+CHANGE COLUMN `MATCHNO` `MATCH` INT NOT NULL ;
+
+
+DESCRIBE TEAMS;
+Field	Type	Null	Key	Default	Extra
+TEAMNO	int	NO	PRI	NULL	
+Founded	date	YES		NULL	
+PLAYERNO	int	NO		NULL	
+DIVISION	char(6)	NO		NULL	
+
+DESCRIBE PENALTIES;
+Field	Type	Null	Key	Default	Extra
+PAYMENTNO	int	NO	PRI	NULL	
+PLAYERNO	int	NO		NULL	
+PAYMENT_DATE	date	NO		NULL	
+PENALTY_AMOUNT	decimal(7,2)	NO		NULL	
+Paid	char(1)	YES		NULL	
+
+DESCRIBE MATCHES;
+Field	Type	Null	Key	Default	Extra
+MATCH	int	NO	PRI	NULL	
+TEAMNO	int	NO		NULL	
+PLAYERNO	int	NO		NULL	
+WON	smallint	NO		NULL	
+LOST	smallint	NO		NULL	
+Date	date	YES		NULL	
+
+

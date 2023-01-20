@@ -1,0 +1,27 @@
+DESCRIBE info;
+Field	Type	Null	Key	Default	Extra
+regID	int	NO	PRI	NULL	
+regDate	datetime	YES		NULL	
+RegCountry	varchar(45)	NO		NULL	
+Registration_regID	int	NO	PRI	NULL	
+
+
+DESCRIBE people;
+Field	Type	Null	Key	Default	Extra
+personID	int	NO	PRI	NULL	auto_increment
+name	varchar(45)	YES		NULL	
+email	varchar(45)	YES		NULL	
+
+
+DESCRIBE registration;
+Field	Type	Null	Key	Default	Extra
+regID	int	NO	PRI	NULL	
+personID	int	NO	MUL	NULL	
+People_personID	int	NO	PRI	NULL	
+
+
+SHOW TABLES;
+Tables_in_mydb
+info
+people
+registration

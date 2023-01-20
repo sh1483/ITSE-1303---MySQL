@@ -1,0 +1,6 @@
+Field	Type	Null	Key	Default	Extra
+PAYMENTNO	int	NO	PRI	NULL	
+PLAYERNO	int	NO		NULL	
+PAYMENT_DATE	date	NO		NULL	
+PENALTY_AMOUNT	decimal(7,2)	NO		NULL	
+Paid	char(1)	YES		NULL	

@@ -1,0 +1,30 @@
+-- Add a new penalty to the PENALTIES table; the payment number is 11,
+-- this concerns player 44, the payment date was 1985-11-08, and the penalty amount is $100.
+INSERT INTO penalties VALUES
+(11, 44, '1985-11-08', 100);
+
+-- Double the amount of all penalties.
+UPDATE penalties
+SET AMOUNT = AMOUNT * 2;
+
+-- Delete the two lowest penalties.
+DELETE FROM penalties
+WHERE AMOUNT = 50;
+
+-- Delete all penalties and matches of player 104,
+-- regardless of whether the player appears in both tables.
+DELETE penalties, matches
+FROM penalties JOIN matches ON
+	penalties.PLAYERNO = matches.PLAYERNO
+WHERE penalties.PLAYERNO = 104 OR matches.PLAYERNO = 104;
+
+SELECT *
+FROM penalties;
+
+PAYMENTNO	PLAYERNO	PAYMENT_DATE	AMOUNT
+1	6	1980-12-08	200.00
+2	44	1981-05-05	150.00
+3	27	1983-09-10	200.00
+7	44	1982-12-30	60.00
+8	27	1984-11-12	150.00
+11	44	1985-11-08	200.00

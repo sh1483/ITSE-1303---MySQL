@@ -1,0 +1,59 @@
+-- a) Find the # of penalties and highest penalty amount
+SELECT PAYMENTNO, COUNT(*) AS total_penalties,
+	MAX(AMOUNT) AS max_penalty
+FROM penalties;
+
+PAYMENTNO	total_penalties	max_penalty
+1	8	100.00
+
+
+-- b) Find who has more than one payment. Calculate the difference btwn high and low payments.
+SELECT PLAYERNO, 
+	sum(max(AMOUNT)-min(AMOUNT)) OVER (PARTITION BY PLAYERNO) AS difference_high_low
+FROM penalties
+GROUP BY PLAYERNO
+HAVING count(*) >=2
+ORDER BY PLAYERNO;
+
+PLAYERNO	difference_high_low
+27	25.00
+44	50.00
+
+
+-- c) For each team that has played in 1st division, give team #, # of matches,
+-- # total sets won
+SELECT teams.TEAMNO, count( distinct MATCHNO) AS number_of_matches, sum(WON) AS total_set_wins
+FROM matches
+	JOIN teams USING (TEAMNO)
+WHERE DIVISION = 'first'
+ORDER BY TEAMNO;
+
+TEAMNO	number_of_matches	total_set_wins
+1	8	15
+
+
+
+-- d) Name and initials of ea player with 2+ penalties > $40
+SELECT NAME, INITIALS
+FROM players
+WHERE PLAYERNO IN
+(SELECT PLAYERNO
+FROM penalties
+WHERE AMOUNT > 40
+GROUP BY PLAYERNO
+having count(*) >=2);
+
+NAME	INITIALS
+Collins	DD
+
+
+
+-- e) Match numbers of 2 highest and 2 lowest match numbers
+SELECT MAX(MATCHNO) AS first_match,
+		MAX(MATCHNO)-1 AS second_match,
+		MIN(MATCHNO) AS last_match,
+		MIN(MATCHNO)+1 AS second_to_last
+FROM matches;
+
+first_match	second_match	last_match	second_to_last
+13	12	1	2

@@ -1,0 +1,35 @@
+SELECT PLAYERNO FROM PLAYERS WHERE JOINED > 1980 AND TOWN = 'Stratford' ORDER BY PLAYERNO;			
+PLAYERNO			
+7			
+57			
+83			
+			
+SELECT * FROM PENALTIES;			
+PAYMENTNO	PLAYERNO	PAYMENT_DATE	AMOUNT
+1	6	12/8/1980	100
+2	44	5/5/1981	75
+3	27	9/10/1983	100
+4	104	12/8/1984	50
+5	44	12/8/1980	25
+6	8	12/8/1980	25
+7	44	12/30/1982	30
+8	27	11/12/1984	75
+			
+SELECT NAME FROM players WHERE JOINED > 1980 AND TOWN = 'Stratford' ORDER BY PLAYERNO;			
+NAME			
+Wise			
+Brown			
+Hope			
+			
+SELECT * FROM teams;			
+TEAMNO	PLAYERNO	DIVISION	
+1	6	first	
+2	27	second	
+			
+SHOW tables;			
+Tables_in_tennis			
+committee_members			
+matches			
+penalties			
+players			
+teams			

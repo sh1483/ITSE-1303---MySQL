@@ -1,0 +1,61 @@
+-- Add an EDUCATION table
+DROP TABLE IF EXISTS `education`;
+CREATE TABLE `education` (
+  `CountryCode` char(3) NOT NULL DEFAULT '',
+  `LiteracyRate` int NOT NULL,
+  `MaleLiteracyRate` int NOT NULL,
+  `FemaleLiteracyRate` int NOT NULL,
+  PRIMARY KEY (`CountryCode`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+
+-- Add data for 4 countries.
+INSERT INTO education VALUES
+('AFG', 38, 52, 24),
+('DEU', 99, 99, 99),
+('NLD', 99, 99, 99),
+('USA', 99, 99, 99);
+
+
+-- Display the languages of the United States.
+SELECT Language FROM countrylanguage
+WHERE CountryCode = 'USA';
+
+Language
+English
+French
+German
+Italian
+Japanese
+Korean
+Polish
+Portuguese
+Spanish
+Tagalog
+Vietnamese
+
+
+-- Display the cities of Germany and the population of each city.
+SELECT Name, Population
+FROM city
+WHERE CountryCode = 'DEU';
+
+Name	Population
+Berlin	3386667
+Hamburg	1704735
+Frankfurt am Main	643821
+Essen	599515
+Dortmund	590213
+Stuttgart	582443
+
+
+-- Display the country and the female literacy rate of all countries.
+SELECT CountryCode, FemaleLiteracyRate
+FROM education;
+
+CountryCode	FemaleLiteracyRate
+AFG	24
+DEU	99
+NLD	99
+USA	99
+

@@ -1,0 +1,76 @@
+SELECT TEAMNO, players.NAME, players.INITIALS, players.PLAYERNO
+FROM teams JOIN players
+ON players.PLAYERNO = teams.PLAYERNO
+WHERE NAME = "Parmenter" AND INITIALS = "R";
+
+TEAMNO	NAME	INITIALS	PLAYERNO
+1	Parmenter	R	6
+
+
+
+			
+SELECT PAYMENTNO, AMOUNT, penalties.PLAYERNO, players.NAME
+FROM penalties JOIN players
+ON players.PLAYERNO = penalties.PLAYERNO;
+
+PAYMENTNO	AMOUNT	PLAYERNO	NAME
+1	100.00	6	Parmenter
+2	75.00	44	Baker
+3	100.00	27	Collins
+4	50.00	104	Moorman
+5	25.00	44	Baker
+6	25.00	8	Newcastle
+7	30.00	44	Baker
+8	75.00	27	Collins
+
+
+
+
+SELECT DISTINCT players.PLAYERNO, matches.TEAMNO
+FROM matches
+RIGHT JOIN players
+ON matches.PLAYERNO = players.PLAYERNO
+ORDER BY PLAYERNO;
+
+PLAYERNO	TEAMNO
+2	1
+6	1
+7	NULL
+8	2
+8	1
+27	2
+28	NULL
+39	NULL
+44	1
+57	1
+83	1
+95	NULL
+100	NULL
+104	2
+112	2
+
+
+
+
+SELECT DISTINCT PLAYERNO
+FROM matches
+WHERE WON > LOST;
+
+PLAYERNO
+6
+44
+57
+27
+104
+
+
+
+
+SELECT PAYMENTNO
+FROM penalties JOIN players
+ON penalties.PLAYERNO = players.PLAYERNO
+WHERE players.BIRTH_DATE > '1965-12-31';
+
+PAYMENTNO
+4
+
